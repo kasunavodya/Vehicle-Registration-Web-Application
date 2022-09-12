@@ -24,14 +24,19 @@
                          </div>
                          <div class="comp pull-right show-logout">
                              <a href="/registerVehicle" class="hdr-btn link-reset" data-login-modal="" style = {{color: "white"}}>
-                                 <b>Vehicle Registration</b>
+                                 <b style = {{fontSize: "15px"}}>Vehicle Registration</b>
                              </a>
                          </div>
-                         {/* <div class="comp pull-right show-logout">
-                             <a href="/register" class="hdr-btn link-reset" data-header-view="true" data-signup-modal="" style = {{color: "white"}}>
-                                 SIGNUP
+                         <div class="comp pull-right show-logout">
+                             <a href="/viewVehicles" class="hdr-btn link-reset" data-header-view="true" data-signup-modal="" style = {{color: "white"}}>
+                                 <b style = {{fontSize: "15px"}}>View Vehicles</b>
                              </a>
-                         </div> */}
+                         </div>
+                         <div class="comp pull-right show-logout">
+                             <a href="/" class="hdr-btn link-reset" data-header-view="true" data-signup-modal="" style = {{color: "white"}}>
+                                 <b style = {{fontSize: "15px"}}>Home</b>
+                             </a>
+                         </div>
                          <div class="search-bar-container pull-right">
                          </div>
                      </div>

@@ -79,16 +79,6 @@ export default class regsterVehiclePage extends Component {
             <div>
                 <Header />
                 <div class="wrapper">
-                    <nav>
-                        <header><br />
-                            &nbsp; &nbsp; &nbsp; &nbsp;
-                        </header><hr style={{ color: "white" }} />
-                        <ul><br />
-                            <li><a href="/viewVehicles" style={{ color: "white" }}>View Vehicles</a></li>
-                            <li><a href="/registerVehicle" style={{ color: "white" }} class="active">Register Vehicle</a></li>
-                            <li><a href="/" style={{ color: "white" }}>Logout</a></li>
-                        </ul>
-                    </nav>
                     <main>
                         <h1>REGISTER VEHICLE</h1>
                         <div class="container border rounded" style={{ width: '1000px' }}>
@@ -113,6 +103,7 @@ export default class regsterVehiclePage extends Component {
                                             <br />
                                             <div className="form-group">
                                                 <span style={{ color: "black" }}>License Plate Number<span style={{ color: "red", fontSize: "24px" }}>*</span></span> &emsp; &emsp; &emsp; <font color="red" style={{ fontSize: '14px' }}>{this.state.plateNumberError}</font>
+                                                <br />
                                                 <input
                                                     class="form-control"
                                                     type="text"
@@ -142,7 +133,7 @@ export default class regsterVehiclePage extends Component {
                                             <div className="form-group">
                                                 <span style={{ color: "black" }}>Vehicle Type<span style={{ color: "red", fontSize: "24px" }}>*</span></span> &emsp; &emsp; &emsp; <font color="red" style={{ fontSize: '14px' }}></font>
                                                 <div class="row">
-                                                    <div class="column">
+                                                    <div class="column" style = {{width: "50%"}}>
                                                         <select name="typeOption" id="typeOption" onChange={this.onChange} class="form-select" aria-label="Default select example" style={{ border: "1px solid #c8cfcb", backgroundColor: "#edf0eb" }}>
                                                             <option selected value="typeOption" disabled>Select Vehicle Type</option>
                                                             <option value="Two Wheeler Vehicle">Two Wheeler Vehicle (Motor Cycle, Scooty)</option>
@@ -152,7 +143,7 @@ export default class regsterVehiclePage extends Component {
                                                             <option value="Eight Wheeler Vehicle">Eight Wheeler Vehicle (Bus, Trucks, etc.)</option>
                                                         </select>
                                                     </div><br />
-                                                    <div class="column">
+                                                    <div class="column" style = {{width: "50%"}}>
                                                         <input
                                                             class="form-control"
                                                             type="text"
@@ -195,15 +186,15 @@ export default class regsterVehiclePage extends Component {
                                             </div>
                                             <br />
                                         </div><br />
-                                        <button type="submit" style={{ width: '20%', marginLeft: '80%' }} className="btn btn-dark" id="submitBtn">Add Vehicle</button>
+                                        <button type="submit" style={{ width: '100%'}} className="btn btn-dark" id="submitBtn">Add Vehicle</button>
                                         <br /><br />
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </main>
-                </div>
-            </div>
+                    </main >
+                </div >
+            </div >
         )
     }
 }

@@ -1,6 +1,7 @@
  import React, { Component } from 'react'
  import '../../assets/css/vehicle.css';
  import Axios from 'axios';
+ import Header from '../../header/header';
  
  const initialStates = {
      "vehicles": []
@@ -51,17 +52,8 @@
      render() {
          return (
              <div>
+                <Header />
                  <div class="wrapper">
-                     <nav>
-                         <header><br />
-                             &nbsp; &nbsp; &nbsp; &nbsp; 
-                         </header><hr style={{ color: "white" }} />
-                         <ul><br />
-                            <li><a href="/viewVehicles" style={{ color: "white" }}>View Vehicles</a></li>
-                            <li><a href="/registerVehicle" style={{ color: "white" }} class="active">Register Vehicle</a></li>
-                            <li><a href="/" style={{ color: "white" }}>Logout</a></li>
-                        </ul>
-                     </nav>
                      <main>
                          <h1>VEHICLE DELETE CONFIRMATION</h1>
                          <div class="content">
