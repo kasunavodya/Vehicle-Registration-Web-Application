@@ -7,6 +7,7 @@ import '../../assets/css/vehicle.css';
 
 const initialStates = {
     "owner": '',
+    "plateNumberType": '',
     "plateNumber": '',
     "manufacturer": '',
     "typeOption": '',
@@ -33,6 +34,7 @@ export default class updateVehiclePage extends Component {
             .then(response => {
                 this.setState({ vehicles: response.data.data });
                 this.setState({ owner: this.state.vehicles.owner });
+                this.setState({ plateNumberType: this.state.vehicles.plateNumberType });
                 this.setState({ plateNumber: this.state.vehicles.plateNumber });
                 this.setState({ manufacturer: this.state.vehicles.manufacturer });
                 this.setState({ typeOption: this.state.vehicles.typeOption });
@@ -55,9 +57,9 @@ export default class updateVehiclePage extends Component {
             plateNumberError: ''
         };
 
-        if (this.state.plateNumber.length > 11) {
+        if (this.state.plateNumber.length > 20) {
             isError = true;
-            errors.plateNumberError = "Needs to be lower than 11 characters";
+            errors.plateNumberError = "Needs to be lower than 20 characters";
         }
 
         if (isError) {
@@ -78,6 +80,7 @@ export default class updateVehiclePage extends Component {
 
             let updateVehicle = {
                 "owner": this.state.owner,
+                "plateNumberType": this.state.plateNumberType,
                 "plateNumber": this.state.plateNumber,
                 "manufacturer": this.state.manufacturer,
                 "typeOption": this.state.typeOption,
@@ -125,17 +128,31 @@ export default class updateVehiclePage extends Component {
                                                     style={{ border: "1px solid #c8cfcb", backgroundColor: "#edf0eb" }} />
                                             </div>
                                             <br />
-                                            <div className="form-group">
+                                             <div className="form-group">
                                                 <span style={{ color: "black" }}>License Plate Number<span style={{ color: "red", fontSize: "24px" }}>*</span></span> &emsp; &emsp; &emsp; <font color="red" style={{ fontSize: '14px' }}>{this.state.plateNumberError}</font>
-                                                <input
-                                                    class="form-control"
-                                                    type="text"
-                                                    name="plateNumber"
-                                                    id="plateNumber"
-                                                    value={this.state.plateNumber}
-                                                    onChange={this.onChange}
-                                                    required
-                                                    style={{ border: "1px solid #c8cfcb", backgroundColor: "#edf0eb" }} />
+                                                <br />
+                                                <div class="row">
+                                                    <div class="column" style={{ width: "50%" }}>
+                                                        <select name="plateNumberType" id="plateNumberType" value={this.state.plateNumberType} onChange={this.onChange} class="form-select" aria-label="Default select example" style={{ border: "1px solid #c8cfcb", backgroundColor: "#edf0eb" }}>
+                                                            <option selected value="plateNumberType" disabled>Select License Plate Type</option>
+                                                            <option value="Vintage License Plate">Vintage (Eg: 13 ශ්‍රී 9999)</option>
+                                                            <option value="Old License Plate">Old (Eg: 250-9999, 19-9999)</option>
+                                                            <option value="Modern License Plate">Modern (Eg: WP GA-9999, CAR-9999)</option>
+                                                        </select>
+                                                    </div><br />
+                                                    <div class="column" style={{ width: "50%" }}>
+                                                        <input
+                                                            class="form-control"
+                                                            type="text"
+                                                            name="plateNumber"
+                                                            id="plateNumber"
+                                                            value={this.state.plateNumber}
+                                                            onChange={this.onChange}
+                                                            placeholder="Enter License Plate Number"
+                                                            required
+                                                            style={{ border: "1px solid #c8cfcb", backgroundColor: "#edf0eb" }} />
+                                                    </div>
+                                                </div>
                                             </div>
                                             <br />
                                             <div className="form-group">

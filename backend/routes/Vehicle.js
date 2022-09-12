@@ -37,6 +37,7 @@
  
  router.route("/updateVehicle/:id").put(async (req, res) => {
      const owner = req.body.owner;
+     const plateNumberType = req.body.plateNumberType;
      const plateNumber = req.body.plateNumber;
      const manufacturer = req.body.manufacturer;
      const typeOption = req.body.typeOption;
@@ -49,6 +50,7 @@
      try {
          await VehicleModel.findById(Id, (err, updatedVehicleObject) => {
              updatedVehicleObject.owner = owner;
+             updatedVehicleObject.plateNumberType = plateNumberType;
              updatedVehicleObject.plateNumber = plateNumber;
              updatedVehicleObject.manufacturer = manufacturer;
              updatedVehicleObject.typeOption = typeOption;

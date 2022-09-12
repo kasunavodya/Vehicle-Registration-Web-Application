@@ -6,6 +6,10 @@ const vehicleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    plateNumberType: {
+        type: String,
+        required: true,
+    },
     plateNumber: {
         type: String,
         required: true,

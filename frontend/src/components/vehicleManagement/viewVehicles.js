@@ -74,6 +74,7 @@ export default class ViewVehicleDetailsPage extends Component {
                                         <div class="card" style={{ backgroundColor: "#e2e1eb" }}>
                                             <div class="container"><br />
                                                 <p style={{ fontFamily: "Arial Black", fontSize: "25px", color: "black" }}><b><i className='fa fa-car'></i>{" " + item.plateNumber}</b></p>
+                                                <p style={{ marginLeft: "25%", marginTop: "-4%" }}> <span class="highlight" style={{ backgroundColor: '#f0ec0e', padding: '0.4em 0.6em', color: 'red' }}>{item.plateNumberType}</span></p>
                                                 <p style={{ fontFamily: "sans-serif", fontSize: "19px", color: "#47464d" }}><i className='fa fa-user'></i>  OWNER: {item.owner}</p>
                                                 <p style={{ fontFamily: "sans-serif", fontSize: "19px", color: "#47464d" }}><i className='fa fa-industry'></i>  MANUFACTURER: {item.manufacturer}</p>
                                                 <p style={{ fontFamily: "sans-serif", fontSize: "19px", color: "#47464d" }}><i className='fa fa-car'></i>  VEHICLE TYPE: {item.typeOption} ({item.typeName})</p>
