@@ -1,5 +1,18 @@
+/**
+ * Vehicle Model created to store the vehicle registered details on the database
+ * 
+ * --scope - Vehicle Management
+ * 
+ * --author Kasuni Makalanda
+ *
+ */
+
+//Importing the mongoose from the installed package - mongoose@8.0.2
 const mongoose = require('mongoose');
 
+/**
+ * Schema name (local) - vehicleSchema
+ */
 const vehicleSchema = new mongoose.Schema({
 
     owner: {
@@ -38,5 +51,10 @@ const vehicleSchema = new mongoose.Schema({
     
 })
 
+/**
+ * Schema name on the database - Vehicle
+ * 
+ * Exported model to be used on the Vehicle route
+ */
 const Vehicle = mongoose.model("Vehicle", vehicleSchema);
 module.exports = Vehicle;

@@ -1,7 +1,26 @@
+ /**
+ * Routes (API) for Vehicles created to use API on the front end to perform
+ * all opertaions related to Vehicles
+ * 
+ * --scope - Vehicle Management
+ * --Implemented APIs'  - ADD Vehicle               | GET ALL Vehicles      |  GET Vehicle BY ID
+ *                        UPDATE Vehicle            | DELETE Vehicle
+ * 
+ * --author Kasuni Makalanda
+ *
+ */
+ 
  const router = require('express').Router();
 
+ /**
+ * Imported Vehicle Model - Vehicle.js - MODEL
+ */
  const VehicleModel = require('../models/Vehicle');
  
+ /**
+ * API DESC      - New vehicle registration
+ * API           - http://localhost:3001/vehicle/addVehicle
+ */
  router.route('/addVehicle').post(async (req, res) => {
      if (req.body) {
  
@@ -15,6 +34,10 @@
      }
  });
  
+/**
+ * API DESC      - Get all vehicle details
+ * API           - http://localhost:3001/vehicle/getAllVehicles
+ */
  router.route('/getAllVehicles').get(async (req, res) => {
      await VehicleModel.find({})
          .then(data => {
@@ -24,6 +47,10 @@
          })
  });
  
+/**
+ * API DESC      - Get vehicle details by ID
+ * API           - http://localhost:3001/vehicle/getVehicleById/<ID>
+ */
  router.route('/getVehicleById/:id').get(async (req, res) => {
      if (req.params && req.params.id) {
          await VehicleModel.findById(req.params.id)
@@ -35,6 +62,10 @@
      }
  });
  
+ /**
+ * API DESC      - Update vehicle details by using ID
+ * API           - http://localhost:3001/vehicle/updateVehicle/<ID>
+ */
  router.route("/updateVehicle/:id").put(async (req, res) => {
      const owner = req.body.owner;
      const plateNumberType = req.body.plateNumberType;
@@ -70,6 +101,10 @@
      }
  });
  
+/**
+ * API DESC      - Remove vehicle details by using ID
+ * API           - http://localhost:3001/vehicle/deleteVehicle/<ID>
+ */
  router.route('/deleteVehicle/:id').delete(async (req, res) => {
      if (req.params && req.params.id) {
          await VehicleModel.findByIdAndDelete(req.params.id)

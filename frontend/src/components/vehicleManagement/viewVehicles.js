@@ -1,3 +1,11 @@
+/**
+ * SCOPE    -   VEHICLE MANAGEMENT
+ * PAGE     -   VIEW VEHICLE PAGE 
+ * 
+ * =========================================
+ * CREATED BY           :   Kasuni Makalanda
+ */
+
 import React, { Component } from 'react'
 import Axios from 'axios';
 
@@ -22,6 +30,11 @@ export default class ViewVehicleDetailsPage extends Component {
         this.setState({ searchVehicle: e.target.value });
     }
 
+     /**
+     * DESCRIPTION      -       The function written to get all vehicle details
+     * METHOD CALLS     -       setState()
+     * API CALL         -       GET ALL VEHICLE DETAILS
+     */
     componentDidMount(e) {
         Axios.get('http://localhost:3001/vehicle/getAllVehicles')
             .then(response => {
@@ -31,10 +44,16 @@ export default class ViewVehicleDetailsPage extends Component {
             })
     }
 
+    /**
+     * DESCRIPTION      -       The function to navigate to the update vehicle page
+     */
     navigateToUpdatePage(e, vehicleId) {
         window.location = `/updateVehicle/${vehicleId}`;
     }
 
+    /**
+     * DESCRIPTION      -       The function to navigate to the delete vehicle page
+     */
     navigateToDeletePage(e, vehicleId) {
         window.location = `/deleteVehicle/${vehicleId}`;
     }

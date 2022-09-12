@@ -1,3 +1,11 @@
+/**
+ * SCOPE    -   VEHICLE MANAGEMENT
+ * PAGE     -   REGISTER VEHICLE PAGE 
+ * 
+ * =========================================
+ * CREATED BY           :   Kasuni Makalanda
+ */
+
 import React, { Component } from 'react'
 import Header from '../../header/header';
 import Axios from 'axios';
@@ -35,9 +43,9 @@ export default class regsterVehiclePage extends Component {
             plateNumberError: ''
         };
 
-        if (this.state.plateNumber.length > 20) {
+        if (this.state.plateNumber.length > 15) {
             isError = true;
-            errors.plateNumberError = "Needs to be lower than 20 characters";
+            errors.plateNumberError = "Needs to be lower than 15 characters";
         }
 
         if (isError) {
@@ -50,6 +58,11 @@ export default class regsterVehiclePage extends Component {
         return isError;
     }
 
+    /**
+    * DESCRIPTION       -       The function written to save the vehicle details.
+    * METHOD CALLS      -       setState()
+    * API CALL          -       ADD VEHICLE DETAILS
+    */
     onSubmit(e) {
         e.preventDefault();
 

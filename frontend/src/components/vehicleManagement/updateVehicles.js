@@ -1,3 +1,11 @@
+/**
+ * SCOPE    -   VEHICLE MANAGEMENT
+ * PAGE     -   UPDATE VEHICLE PAGE 
+ * 
+ * =========================================
+ * CREATED BY           :   Kasuni Makalanda
+ */
+
 import React, { Component } from 'react'
 import Header from '../../header/header';
 import Axios from 'axios';
@@ -25,10 +33,15 @@ export default class updateVehiclePage extends Component {
         this.navigatetoViewVehiclePage = this.navigatetoViewVehiclePage.bind(this);
         this.state = initialStates;
         this.state = {
-            id : this.props.match.params.id
+            id: this.props.match.params.id
         }
     }
 
+    /**
+     * DESCRIPTION      -       The function written to get the vehicle details by ID
+     * METHOD CALLS     -       setState()
+     * API CALL         -       GET VEHICLE BY ID
+     */
     componentDidMount() {
         Axios.get(`http://localhost:3001/vehicle/getVehicleById/${this.state.id}`)
             .then(response => {
@@ -57,9 +70,9 @@ export default class updateVehiclePage extends Component {
             plateNumberError: ''
         };
 
-        if (this.state.plateNumber.length > 20) {
+        if (this.state.plateNumber.length > 15) {
             isError = true;
-            errors.plateNumberError = "Needs to be lower than 20 characters";
+            errors.plateNumberError = "Needs to be lower than 15 characters";
         }
 
         if (isError) {
@@ -72,6 +85,11 @@ export default class updateVehiclePage extends Component {
         return isError;
     }
 
+    /**
+    * DESCRIPTION       -       The function written to update the vehicle details.
+    * METHOD CALLS      -       setState()
+    * API CALL          -       UPDATE VEHICLE DETAILS
+    */
     onSubmit(e) {
         e.preventDefault();
 
@@ -98,6 +116,9 @@ export default class updateVehiclePage extends Component {
         }
     }
 
+    /**
+     * DESCRIPTION      -       The function to navigate to the view vehicle page
+     */
     navigatetoViewVehiclePage(e) {
         window.location = `/viewVehicles`;
     }
@@ -128,7 +149,7 @@ export default class updateVehiclePage extends Component {
                                                     style={{ border: "1px solid #c8cfcb", backgroundColor: "#edf0eb" }} />
                                             </div>
                                             <br />
-                                             <div className="form-group">
+                                            <div className="form-group">
                                                 <span style={{ color: "black" }}>License Plate Number<span style={{ color: "red", fontSize: "24px" }}>*</span></span> &emsp; &emsp; &emsp; <font color="red" style={{ fontSize: '14px' }}>{this.state.plateNumberError}</font>
                                                 <br />
                                                 <div class="row">
@@ -171,7 +192,7 @@ export default class updateVehiclePage extends Component {
                                             <div className="form-group">
                                                 <span style={{ color: "black" }}>Vehicle Type<span style={{ color: "red", fontSize: "24px" }}>*</span></span> &emsp; &emsp; &emsp; <font color="red" style={{ fontSize: '14px' }}></font>
                                                 <div class="row">
-                                                    <div class="column" style = {{width: "50%"}}>
+                                                    <div class="column" style={{ width: "50%" }}>
                                                         <select name="typeOption" id="typeOption" value={this.state.typeOption} onChange={this.onChange} class="form-select" aria-label="Default select example" style={{ border: "1px solid #c8cfcb", backgroundColor: "#edf0eb" }}>
                                                             <option selected value="typeOption" disabled>Select Vehicle Type</option>
                                                             <option value="Two Wheeler Vehicle">Two Wheeler Vehicle (Motor Cycle, Scooty)</option>
@@ -181,7 +202,7 @@ export default class updateVehiclePage extends Component {
                                                             <option value="Eight Wheeler Vehicle">Eight Wheeler Vehicle (Bus, Trucks, etc.)</option>
                                                         </select>
                                                     </div><br />
-                                                    <div class="column" style = {{width: "50%"}}>
+                                                    <div class="column" style={{ width: "50%" }}>
                                                         <input
                                                             class="form-control"
                                                             type="text"
@@ -224,7 +245,7 @@ export default class updateVehiclePage extends Component {
                                         </div><br />
                                         <button type="submit" style={{ width: '48%' }} onClick={this.navigatetoViewVehiclePage} className="btn btn-dark" id="submitBtn">Cancel</button>
                                         &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                                        <button type="submit" style={{ width: '48%'}} className="btn btn-dark" id="submitBtn">Update</button>
+                                        <button type="submit" style={{ width: '48%' }} className="btn btn-dark" id="submitBtn">Update</button>
                                         <br /><br />
                                     </form>
                                 </div>
